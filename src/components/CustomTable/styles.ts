@@ -4,39 +4,55 @@ import styled from 'styled-components';
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  /* margin-top: 16px; */
   table-layout: auto;
-  border: 1px solid lightgray;
-  border-radius: 20px;
+  border-radius: 20px;  
 `;
 
+export const TableWrapper = styled.div`
+  overflow-y: auto;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: auto;  /* IE 10+ */
+
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+`;
+
+export const TableBody = styled.tbody``;
+
 export const TableHead = styled.thead`
-  background-color: #f5f5f5;
-  border: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  border: 1px solid ${props => props.theme.colors.border};
+  z-index: 1;
+  background-color: ${props => props.theme.colors.background.tertiary};
 `;
 
 export const TableMenu = styled.th`
   padding: 12px;
   text-align: left;
   font-weight: bold;
-  border: 1px solid lightgray;
+  border: 1px solid ${props => props.theme.colors.border};
 `;
 
 export const TableRow = styled.tr`
   
+  border: 1px solid ${props => props.theme.colors.border};
   &:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: ${props => props.theme.colors.background.secondary};
   }
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: ${props => props.theme.colors.background.tertiary};
   }
 `;
 
 export const TableData = styled.td`
   padding: 12px;
   text-align: left;
-  border: 1px solid lightgray;  
+  border: 1px solid ${props => props.theme.colors.border};
 `;
 
 export const TableMenuButtons = styled(TableMenu)`
@@ -45,20 +61,28 @@ export const TableMenuButtons = styled(TableMenu)`
 `
 
 export const TableButtons = styled(TableData)`
-  padding: 10px;
-  
+  padding: 0px;
   text-align: center;
-  /* justify-content: space-around; */
   width: 200px;
-  /* border: 0;   */
 `;
 
 export const Button = styled(ButtonImp)`
   min-width: 80px;
+  margin: 0 5px;
 `;
 
 export const TableAddContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 10px 0;
+  padding: 10px 0 10px 10px ;
+  height: 50px;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > filter{
+    width: 100%;
+  }
 `;

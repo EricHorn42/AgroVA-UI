@@ -3,12 +3,12 @@ import { Theme } from '../types/context/themeContext';
 export const ThemeBase: Theme = {
   layout: {
     width: {
-      menuClose: 80, // Largura do menu fechado
+      menuClose: 80,
       menuOpen: 300,
       container: 0
     },
     height: {
-      header: 60,
+      header: 40,
       container: 0,
       footer: 0,
       button: 0,
@@ -23,7 +23,9 @@ export const ThemeBase: Theme = {
     background: {
       primary: '',
       secondary: '',
-      terciary: ''
+      tertiary: '',
+      quaternary: '',
+      quinary: ''
     },
     text: '',
     border: '',
@@ -47,24 +49,27 @@ export const lightTheme: Theme = {
   ...ThemeBase,
   colors: {
     background: {
-      primary: '#F1F8E9', // Bege Claro (fundo principal)
-      secondary: '#81C784', // Verde Menta (fundo secundário)
-      terciary: '#FFFFFF', // Branco (fundo terciário)
+      primary: '#bcd883',
+      secondary: '#a6cd3a',
+      tertiary: '#80bd50',
+      quaternary: '#06a50f',
+      quinary: '#0c8a02',      
     },
-    text: '#388E3C', // Verde Floresta (texto principal)
-    border: '#B0BEC5', // Cinza Claro (borda)
-    hover: '#4CAF50', // Verde Folha (hover geral)
-    active: '#388E3C', // Verde Floresta (ativo geral)
+
+    text: '#000',
+    border: '#07a965',
+    hover: '#4CAF50',
+    active: '#388E3C',
     button: {
-      primary: '#4CAF50', // Verde Folha (botão padrão)
-      hover: '#388E3C', // Verde Floresta (hover do botão)
-      active: '#2E7D32', // Verde Floresta escuro (ativo botão)
-      disable: '#B0BEC5', // Cinza Claro (botão desabilitado)
-      submit: '#388E3C', // Verde Floresta (botão de submit)
-      floating: '#81C784', // Verde Menta (botão flutuante)
+      primary: '#4CAF50',
+      hover: '#388E3C',
+      active: '#2E7D32',
+      disable: '#B0BEC5',
+      submit: '#388E3C',
+      floating: '#81C784',
     },
     label: {
-      login: '#556B2F', // Verde Oliva escuro (labels)
+      login: '#556B2F',
     },
   }
 };
@@ -73,24 +78,26 @@ export const darkTheme: Theme = {
   ...ThemeBase,
   colors: {
     background: {
-      primary: '#121A12', // Verde muito escuro (quase preto com fundo verde)
-      secondary: '#263326', // Cinza escuro esverdeado
-      terciary: '#3A4A3A', // Verde escuro acinzentado
+      primary: '#121A12',
+      secondary: '#263326',
+      tertiary: '#3A4A3A',
+      quaternary: '',
+      quinary: ''
     },
-    text: '#E0E0E0', // Cinza claro para texto
-    border: '#4A5A4A', // Verde acinzentado médio para bordas
-    hover: '#2E7D32', // Verde floresta para hover
-    active: '#1B5E20', // Verde escuro para estados ativos
+    text: '#E0E0E0',
+    border: '#4A5A4A',
+    hover: '#2E7D32',
+    active: '#1B5E20',
     button: {
-      primary: '#2E7D32', // Verde floresta (botão padrão)
-      hover: '#1B5E20', // Verde escuro (hover do botão)
-      active: '#145214', // Verde escuro mais forte (ativo botão)
-      disable: '#555555', // Cinza escuro para botão desabilitado
-      submit: '#4CAF50', // Verde folha (botão submit, destaque)
-      floating: '#81C784', // Verde menta para botão flutuante
+      primary: '#2E7D32',
+      hover: '#1B5E20',
+      active: '#145214',
+      disable: '#555555',
+      submit: '#4CAF50',
+      floating: '#81C784',
     },
     label: {
-      login: '#A5D6A7', // Verde claro acinzentado para labels
+      login: '#A5D6A7',
     },
   }
 };

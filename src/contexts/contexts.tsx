@@ -1,7 +1,6 @@
-import { AuthProvider } from "./auth"
-import { EntityProvider } from "./entityContext";
-import { FarmerProvider } from "./farmerContext"
-import { HarvestProvider } from "./harverstContext";
+import { AuthProvider } from "./AuthProvider"
+import { FarmerProvider } from "./farmerContex";
+import { HarvestProvider } from "./harvestContext";
 import { ThemeProvider } from "./themeContext";
 
 
@@ -12,13 +11,11 @@ export const Providers: React.FC<{ children: React.ReactNode }> = ({ children })
         <>
             <ThemeProvider>
                 <AuthProvider>
-                    <EntityProvider>
-                        <FarmerProvider>
-                            <HarvestProvider>
-                                {children}
-                            </HarvestProvider>
-                        </FarmerProvider>
-                    </EntityProvider>
+                    <FarmerProvider>
+                        <HarvestProvider>
+                            {children}
+                        </HarvestProvider>
+                    </FarmerProvider>
                 </AuthProvider >
             </ThemeProvider>
         </>

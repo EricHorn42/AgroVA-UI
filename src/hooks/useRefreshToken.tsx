@@ -1,17 +1,22 @@
-import { ApiProvider } from '../providers';
+import { axiosPrivate } from '../providers';
+import { Token } from '../types/shared/Token';
 import useAuth from './useAuth';
 
 const useRefreshToken = () => {
-    const { setAuth } = useAuth();
+    const setToken = useAuth()?.setToken;
 
     const refresh = async () => {
-        const response = await ApiProvider.post('/api/RefreshToken', {} , {
-            withCredentials: true
-        });
-        setAuth(prev => {
-            console.log(JSON.stringify(prev));
-            console.log(response.data.accessToken);
-            return { ...prev, accessToken: response.data.accessToken }
+        const response = await axiosPrivate.post('/api/RefreshToken', {},
+            {
+                withCredentials: true
+            });
+
+        if (!setToken) return null;
+        
+        setToken((prev: Token | null) => {
+            if (!prev) return { token: response.data.token };
+
+            return { ...prev, token: response.data.token };
         });
         return response.data.accessToken;
     }

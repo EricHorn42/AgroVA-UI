@@ -1,29 +1,29 @@
-import { ApiProvider } from '../providers';
+import { axiosPrivate } from '../providers';
 import {
   ApiFarmer,
   CreateFarmerDto,
   UpdateFarmerDto
 } from '../types/api/Farmer';
 
-export async function getFarmerById(id: string): Promise<ApiFarmer> {
-  const response = await ApiProvider.get(`/api/Farmers/${id}`);
+export async function getFarmerById(id: number): Promise<ApiFarmer> {
+  const response = await axiosPrivate.get(`/api/Farmers/${id}`);
   return response.data;
 }
 
 export async function getFarmers(): Promise<Array<ApiFarmer>> {
-  const response = await ApiProvider.get(`/api/Farmers`);
+  const response = await axiosPrivate.get(`/api/Farmers`);
   return response.data;
 }
 
 export async function createFarmer(data: CreateFarmerDto): Promise<ApiFarmer> {
-  const response = await ApiProvider.post('/api/Farmers', data);
+  const response = await axiosPrivate.post('/api/Farmers', data);
   return response.data;
 }
 
-export async function updateFarmer(id: string, data: UpdateFarmerDto): Promise<void> {
-  await ApiProvider.put(`/api/Farmers/${id}`, data);
+export async function updateFarmer(id: number, data: UpdateFarmerDto): Promise<void> {
+  await axiosPrivate.put(`/api/Farmers/${id}`, data);
 }
 
-export async function deleteFarmer(id: string): Promise<void> {
-  await ApiProvider.delete(`/api/Farmers/${id}`);
+export async function deleteFarmer(id: number): Promise<void> {
+  await axiosPrivate.delete(`/api/Farmers/${id}`);
 }

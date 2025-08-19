@@ -5,7 +5,7 @@ export interface ApiFarmer extends EntityBase {
   phone: string;  
 }
 
-export type Farmer = Partial<ApiFarmer>;
+export type Farmer = EntityBase & Partial<Omit<ApiFarmer, keyof EntityBase>>;
 
 export type CreateFarmerDto = Omit<Farmer, 'id'>;
 export type UpdateFarmerDto = Partial<Farmer>;

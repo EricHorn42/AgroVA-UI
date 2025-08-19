@@ -22,7 +22,7 @@ const Harvests = () => {
     { key: 'year', label: 'Ano' }
   ];
   
-  return <CustomTable<Harvest> columns={columns} data={harvests} route={Routes.HARVESTSROUTE}/>;
+  return <CustomTable<Harvest> columns={columns} filterKey='year' data={harvests} route={Routes.HARVESTSROUTE}/>;
 };
 
 export default Harvests;

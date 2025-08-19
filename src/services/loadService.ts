@@ -1,4 +1,4 @@
-import { ApiProvider } from '../providers';
+import { axiosPrivate } from '../providers';
 import {
   ApiLoad,
   CreateLoadDto,
@@ -6,24 +6,24 @@ import {
 } from '../types/api/Load';
 
 export async function getLoadById(id: string): Promise<ApiLoad> {
-  const response = await ApiProvider.get(`/api/Loads/${id}`);
+  const response = await axiosPrivate.get(`/api/Loads/${id}`);
   return response.data;
 }
 
 export async function getLoads(): Promise<Array<ApiLoad>> {
-  const response = await ApiProvider.get(`/api/Loads`);
+  const response = await axiosPrivate.get(`/api/Loads`);
   return response.data;
 }
 
 export async function createLoad(data: CreateLoadDto): Promise<ApiLoad> {
-  const response = await ApiProvider.post('/api/Loads', data);
+  const response = await axiosPrivate.post('/api/Loads', data);
   return response.data;
 }
 
 export async function updateLoad(id: string, data: UpdateLoadDto): Promise<void> {
-  await ApiProvider.put(`/api/Loads/${id}`, data);
+  await axiosPrivate.put(`/api/Loads/${id}`, data);
 }
 
 export async function deleteLoad(id: string): Promise<void> {
-  await ApiProvider.delete(`/api/Loads/${id}`);
+  await axiosPrivate.delete(`/api/Loads/${id}`);
 }

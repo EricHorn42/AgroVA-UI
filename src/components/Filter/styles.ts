@@ -3,11 +3,9 @@ import styled from "styled-components";
 export const FilterContainer = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-  /* padding: 10px; */
-  /* background-color: #f5f5f5; */
-  /* border-radius: 5px; */
-  /* margin-bottom: 10px; */
+  width: 100%;
+  padding:10px 0;
+  height: 50px;
 `;
 
 export const Input = styled.input`
@@ -15,7 +13,7 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
-  max-width: 200px;
+  height: 100%;
 `;
 
 export const Button = styled.button`
@@ -27,6 +25,7 @@ export const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   margin-left: 10px;
+  height: 100%;
 
   &:hover {
     background-color: ${props => props.theme.colors.button.hover};

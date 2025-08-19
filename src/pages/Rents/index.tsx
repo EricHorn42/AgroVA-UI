@@ -24,7 +24,7 @@ const Rents = () => {
     { key: 'value', label: 'Valor' }
   ];
 
-  return <CustomTable<Rent> columns={columns} data={rents} route={Routes.RENTSROUTE} />;
+  return <CustomTable<Rent> columns={columns} filterKey='person' data={rents} route={Routes.RENTSROUTE} />;
 };
 
 export default Rents;

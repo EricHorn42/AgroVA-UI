@@ -2,14 +2,22 @@ import styled from "styled-components";
 
 
 export const Select = styled.select`
-    width: 100%;
+    transition: 0.4s;
+    width: auto;
     max-width: 200px;
-    height: 30px;
-    color: #000;
-    /* justify-self: center; */
-    /* place-self: ; */
+    height: 25px;
+    background-color: transparent;
+    box-shadow: none;
+    border: transparent transparent #fff transparent;
+    user-select: none;
+    margin-left: 10px;
+    border: 1px solid ${props => props.theme.colors.border};
     border-radius: 5px;
-    /* justify-self: flex-start; */
+
+    >option {
+        background-color: ${props => props.theme.colors.background.primary};
+    }
+
 `;
 
 export const Container = styled.div`
@@ -17,7 +25,7 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-    color: #fff;
-    font-size: 20px;
-    margin-left: 10px;
+    font-size: 16px;    
+    text-align: center;
+    align-self: center;
 `

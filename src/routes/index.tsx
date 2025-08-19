@@ -42,21 +42,24 @@ const RoutesApp = () => {
 
       <Fragment>
         <Routes>
-          <Route path={HOMEROUTE} element={<Private element={<Home />} />} />
           <Route path="/" element={<Signin />} />
           <Route path={SIGNUPROUTE} element={<Signup />} />
           <Route path="*" element={<Signin />} />
-          <Route path={SIGNOUTROUTE} element={<Private element={<Signout />} />} />
-          <Route path={SETTINGSROUTE} element={<Private element={<Settings />} />} />
-          <Route path={SUPPORTROUTE} element={<Private element={<Support />} />} />
-          {AnnotationRoutes()}
-          {FarmerRoutes()}
-          {HarvestRoutes()}
-          {HuskpriceRoutes()}
-          {LoadRoutes()}
-          {PromissoryRoutes()}
-          {ReceiptRoutes()}
-          {RentRoutes()}
+
+          <Route element={<Private />}>
+            <Route path={HOMEROUTE} element={<Home />} />
+            <Route path={SIGNOUTROUTE} element={<Signout />} />
+            <Route path={SETTINGSROUTE} element={<Settings />} />
+            <Route path={SUPPORTROUTE} element={<Support />} />
+            {AnnotationRoutes()}
+            {FarmerRoutes()}
+            {HarvestRoutes()}
+            {HuskpriceRoutes()}
+            {LoadRoutes()}
+            {PromissoryRoutes()}
+            {ReceiptRoutes()}
+            {RentRoutes()}
+          </Route>
         </Routes>
       </Fragment>
     </C.Container>

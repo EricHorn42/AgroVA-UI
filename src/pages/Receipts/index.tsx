@@ -23,7 +23,7 @@ const Receipts = () => {
     { key: 'value', label: 'Valor' }
   ];
 
-  return <CustomTable<Receipt> columns={columns} data={receipts} route={Routes.RECEIPTSROUTE} />;
+  return <CustomTable<Receipt> columns={columns} filterKey='timestamp' data={receipts} route={Routes.RECEIPTSROUTE} />;
 };
 
 export default Receipts;

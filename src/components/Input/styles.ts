@@ -7,6 +7,7 @@ export const Input = styled.input`
   border-radius: 5px;
   font-size: 16px;
 
+  color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.background.primary};
   border: none;
 `;

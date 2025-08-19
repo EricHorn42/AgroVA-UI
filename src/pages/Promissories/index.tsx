@@ -23,7 +23,7 @@ const Promissories = () => {
     { key: 'value', label: 'Valor' }
   ];
 
-  return <CustomTable<Promissory> columns={columns} data={promissories} route={Routes.PROMISSORIESROUTE} />;
+  return <CustomTable<Promissory> columns={columns} filterKey='timestamp' data={promissories} route={Routes.PROMISSORIESROUTE} />;
 };
 
 export default Promissories;

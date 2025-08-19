@@ -1,11 +1,15 @@
-import { Navigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { ReactNode } from "react";
+import { Navigate, useLocation, Outlet } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
-const Private = ({ element } : {element : ReactNode}) => {
-    const [cookies] = useCookies(['user', 'token']);
-    
-    return cookies.token != null && cookies.token.length > 0 ? element : <Navigate to="/" />;
+const Private = () => {
+    const auth = useAuth();
+    const location = useLocation()
+
+    return (
+        auth?.token?.user
+            ? <Outlet />
+            : <Navigate to="/" state={{ from: location }} replace />
+);
 };
 
 export default Private;

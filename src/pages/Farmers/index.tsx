@@ -8,14 +8,17 @@ import Loads from '../Loads';
 import Annotations from '../Annotations';
 import SplitPane from '../../components/SplitPane';
 import FloatingNoteButton from '../../components/FloatingNoteButton';
-import { useFarmer } from '../../hooks/useFarmer';
 import * as Routes from "../../routes/index.tsx";
+import { useFarmer } from '../../contexts/farmerContex.tsx';
+import { useHarvest } from '../../contexts/harvestContext.tsx';
+import { Column } from '../../types/component/customTableColum.ts';
 
 const Farmers = () => {
   const [loading, setLoading] = useState(true);
   const [farmer, setFarmer] = useState<Farmer[] | null>();
   const { id } = useParams<{ id: string }>();
-  const { setFarmerId } = useFarmer();
+  const { setId } = useFarmer();
+  const {id: harvestId} = useHarvest();
 
   useEffect(() => {
     if (!id)
@@ -23,23 +26,23 @@ const Farmers = () => {
         .then(data => {
           setFarmer(data);
           setLoading(false);
-        });    
+        });
     else {
-      if (setFarmerId)
-        setFarmerId(Number.parseInt(id));
+      if (setId)
+        setId(Number.parseInt(id));
 
-      getFarmerById(id)
+      getFarmerById(id ? Number.parseInt(id) : 0)
         .then(data => {
           setFarmer([data]);
           setLoading(false);
         });
     }
-  }, [id, setFarmerId]);
+  }, [id, setId, harvestId]);
 
   if (loading) return <p>Carregando...</p>;
   if (!farmer) return <p>Não encontrado</p>;
 
-  const columns: { key: keyof Farmer; label: string }[] = [
+  const columns: Column<Farmer>[] = [
     { key: "name", label: "Nome" },
     { key: "phone", label: "Telefone" }
   ];
@@ -117,7 +120,7 @@ const Farmers = () => {
       </div>
     )
   else
-    return <CustomTable<Farmer> columns={columns} data={farmer} route={Routes.FARMERSROUTE} />
+    return <CustomTable<Farmer> columns={columns} data={farmer} filterKey='name' route={Routes.FARMERSROUTE} />
 
 }
 

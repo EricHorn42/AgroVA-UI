@@ -7,7 +7,7 @@ const MenuSection = ({ itens, hasBaseLine = true}: { itens: ReactNode, hasBaseLi
             <C.Content>
                 {itens}
             </C.Content>
-            {hasBaseLine && <hr />}
+            {hasBaseLine && <C.Separator />}
         </C.Container>
     )
 }

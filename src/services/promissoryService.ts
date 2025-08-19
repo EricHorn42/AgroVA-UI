@@ -1,4 +1,4 @@
-import { ApiProvider } from '../providers';
+import { axiosPrivate } from '../providers';
 import {
   ApiPromissory,
   CreatePromissoryDto,
@@ -6,24 +6,24 @@ import {
 } from '../types/api/Promissory';
 
 export async function getPromissoryById(id: string): Promise<ApiPromissory> {
-  const response = await ApiProvider.get(`/api/Promissories/${id}`);
+  const response = await axiosPrivate.get(`/api/Promissories/${id}`);
   return response.data;
 }
 
 export async function getPromissories(): Promise<Array<ApiPromissory>> {
-  const response = await ApiProvider.get(`/api/Promissories`);
+  const response = await axiosPrivate.get(`/api/Promissories`);
   return response.data;
 }
 
 export async function createPromissory(data: CreatePromissoryDto): Promise<ApiPromissory> {
-  const response = await ApiProvider.post('/api/Promissories', data);
+  const response = await axiosPrivate.post('/api/Promissories', data);
   return response.data;
 }
 
 export async function updatePromissory(id: string, data: UpdatePromissoryDto): Promise<void> {
-  await ApiProvider.put(`/api/Promissories/${id}`, data);
+  await axiosPrivate.put(`/api/Promissories/${id}`, data);
 }
 
 export async function deletePromissory(id: string): Promise<void> {
-  await ApiProvider.delete(`/api/Promissories/${id}`);
+  await axiosPrivate.delete(`/api/Promissories/${id}`);
 }

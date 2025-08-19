@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Container = styled.div<{ $sidebar: boolean }>`
   grid-area: menu;
-  background-color: ${ props => props.theme.colors.background.primary};
+  background-color: ${ props => props.theme.colors.background.secondary};
   width: ${({ $sidebar, theme }) => ($sidebar ? theme.layout.width.menuOpen : theme.layout.width.menuClose)}px;  
   overflow: hidden;  
   transition: width 0.5s ease;
@@ -34,7 +34,7 @@ export const LogoWrapper = styled.div`
   img {
     position: absolute;
     height: 80px;
-    left: 0px;
+    left: 0px;    
     transition: opacity 0.3s ease; 
   }
 

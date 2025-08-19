@@ -13,21 +13,23 @@ const GlobalStyle = createGlobalStyle`
     "menu header"
     "menu content";
     grid-template-columns: ${(props) => props.theme.layout.width.menuClose}px auto;
-    gap: 0px;
-    grid-column: 3fr;
-    height: 100vh;    
+    height: 100vh;           
   }
 
   body {
     background-color: ${(props) => props.theme.colors.background.primary};
     color: ${(props) => props.theme.colors.text};
     border-color: ${(props) => props.theme.colors.border};
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;   
   }  
 `;
 
 export const Container = styled.div`
   grid-area: content;
+  margin: 5px;
+  flex-direction: column;
+  height: calc(100vh - ${(props) => props.theme.layout.height.header + 10}px);
+  display: flex;
 `;
 
 export default GlobalStyle;

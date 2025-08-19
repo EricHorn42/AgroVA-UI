@@ -44,7 +44,7 @@ const Loads = ({ farmerId, harvestId }: { farmerId?: number; harvestId?: number 
     { key: 'invoice', label: 'Nota Fiscal' }
   ];
 
-  return <CustomTable<Load> columns={columns} data={loads} route={Routes.LOADSROUTE} />;
+  return <CustomTable<Load> columns={columns} filterKey='invoice' data={loads} route={Routes.LOADSROUTE} />;
 };
 
 export default Loads;

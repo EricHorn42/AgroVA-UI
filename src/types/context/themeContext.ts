@@ -3,7 +3,9 @@ export interface Theme {
     background: {
       primary: string;
       secondary: string;
-      terciary: string;
+      tertiary: string;
+      quaternary: string;
+      quinary: string;
     }
     text: string;
     border: string;

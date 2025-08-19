@@ -24,7 +24,7 @@ const HuskPrices = () => {
     { key: 'price', label: 'Preço' }
   ];
 
-  return <CustomTable<HuskPrice> columns={columns} data={huskPrices} route={Routes.HUSKPRICESROUTE} />;
+  return <CustomTable<HuskPrice> columns={columns} filterKey='percent' data={huskPrices} route={Routes.HUSKPRICESROUTE} />;
 };
 
 export default HuskPrices;

@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { getAnnotations } from '../../services';
 import { Annotation } from "../../types/api/Annotation";
 import { CustomTable } from '../../components/CustomTable';
-import { useHarvest } from '../../hooks/useHarvest';
-import { useFarmer } from '../../hooks/useFarmer';
 import * as Routes from "../../routes/index.tsx";
+import { useFarmer } from '../../contexts/farmerContex.tsx';
+import { useHarvest } from '../../contexts/harvestContext.tsx';
 
 const Annotations = () => {
   const [loading, setLoading] = useState(true);
   const [annotation, setAnnotation] = useState<Annotation[] | null>();
-  const { farmerId } = useFarmer();
-  const { harvestId } = useHarvest();
+  const { id: farmerId } = useFarmer();
+  const { id: harvestId } = useHarvest();
 
   useEffect(() => {
     getAnnotations()
@@ -32,7 +32,7 @@ const Annotations = () => {
     { key: "harvestId", label: "Safra" }
   ];
   
-  return <CustomTable<Annotation> columns={columns} data={annotation} route={Routes.ANNOTATIONSROUTE} />
+  return <CustomTable<Annotation> columns={columns} filterKey='observation' data={annotation} route={Routes.ANNOTATIONSROUTE} />
 
 }
 
